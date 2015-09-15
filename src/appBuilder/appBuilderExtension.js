@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2015 Limerun Project Contributors
- * Portions Copyright (c) 2015 Internet of Protocols Assocation (IOPA)
+ * Copyright (c) 2015 Internet of Protocols Alliance (IOPA)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,19 +20,10 @@
  
  const Mount = require('../middleware/iopaMount').default,
     iopa = require('iopa'),
-    IopaApp = iopa.app,
+    IopaApp = iopa.App,
     constants = iopa.constants,
     IOPA = constants.IOPA,
-    SERVER = constants.SERVER,
-    METHODS = constants.METHODS,
-    PORTS = constants.PORTS,
-    SCHEMES = constants.SCHEMES,
-    PROTOCOLS = constants.PROTOCOLS,
-    APP = constants.APP,
-    COMMONKEYS = constants.COMMONKEYS,
-    OPAQUE = constants.OPAQUE,
-    WEBSOCKET = constants.WEBSOCKET,
-    SECURITY = constants.SECURITY;
+    SERVER = constants.SERVER
 
   /***
     * Method to mount a sub-application at a defined path

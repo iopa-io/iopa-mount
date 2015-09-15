@@ -1,6 +1,6 @@
 # [![IOPA](http://iopa.io/iopa.png)](http://iopa.io)<br> iopa-mount
 
-[![Build Status](https://api.shippable.com/projects/55e79ab01895ca447411bf38/badge?branchName=master)](https://app.shippable.com/projects/55e79ab01895ca447411bf38)
+[![Build Status](https://api.shippable.com/projects/TBD/badge?branchName=master)](https://app.shippable.com/projects/TBD)
 [![NPM](https://img.shields.io/badge/iopa-certified-99cc33.svg?style=flat-square)](http://iopa.io/)
 [![limerun](https://img.shields.io/badge/limerun-certified-3399cc.svg?style=flat-square)](https://nodei.co/npm/limerun/)
 

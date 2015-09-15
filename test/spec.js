@@ -1,7 +1,6 @@
 /*
- * Copyright (c) 2015 Limerun Project Contributors
- * Portions Copyright (c) 2015 Internet of Protocols Assocation (IOPA)
-  *
+ * Copyright (c) 2015 Internet of Protocols Alliance (IOPA)
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,23 +17,13 @@
 const should = require('should');
 
 const iopa = require('iopa'),
-  IopaApp = iopa.app,
   iopaFactory = iopa.factory,
   iopaUtil = iopa.util,
    iopaMount = require('../index'),
 
   constants = iopa.constants,
   IOPA = constants.IOPA,
-  SERVER = constants.SERVER,
-  METHODS = constants.METHODS,
-  PORTS = constants.PORTS,
-  SCHEMES = constants.SCHEMES,
-  PROTOCOLS = constants.PROTOCOLS,
-  APP = constants.APP,
-  COMMONKEYS = constants.COMMONKEYS,
-  OPAQUE = constants.OPAQUE,
-  WEBSOCKET = constants.WEBSOCKET,
-  SECURITY = constants.SECURITY;
+  SERVER = constants.SERVER
 
 describe('#IOPA()', function () {
 
@@ -44,7 +33,7 @@ describe('#IOPA()', function () {
 
    it('should create app that is mounted', function () {
 
-    var test = new IopaApp();
+    var test = new iopa.App();
     
     test.mount("/test", function (context, next) {
       context[IOPA.Method].should.equal("GET");
