@@ -2,22 +2,22 @@
   "name": "iopa-mount",
   "main": "index.js",
   "description": "Mount other IOPA applications or middleware to a given pathname",
-   "author": "iopa <build@iopa.io>",
+  "author": "iopa <build@iopa.io>",
   "license": "Apache-2.0",
- "maintainers": [
+  "maintainers": [
     {
       "name": "iopa",
       "email": "build@iopa.io"
     }
   ],
-  "version": "0.5.0",
+  "version": "0.5.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/iopa-io/iopa-mount.git"
   },
   "dependencies": {
     "iopa": "latest"
-     },
+  },
   "keywords": [
     "iopa",
     "limerun",
@@ -33,11 +33,11 @@
     "framework",
     "node",
     "tasks"
-  ], 
+  ],
   "engines": {
     "node": ">= 4.0"
   },
-   "scripts": {
+  "scripts": {
     "test": "mocha --reporter spec test",
     "quick": "git add . -A && git commit -m 'dev test' && npm version patch && npm publish",
     "typings": "tsd reinstall --overwrite --clean --config tools/tsd.json && tsd link"
