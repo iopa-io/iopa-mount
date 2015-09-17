@@ -17,7 +17,7 @@
 const should = require('should');
 
 const iopa = require('iopa'),
-  iopaFactory = iopa.factory,
+  iopaFactory = new iopa.Factory(),
   iopaUtil = iopa.util,
    iopaMount = require('../index'),
 
@@ -49,15 +49,14 @@ describe('#IOPA()', function () {
 
   it('should call app first times with mounted item', function (done) {
 
-    context = iopaFactory.createRequest("http://localhost/test/hello", "GET");
-    context.response = {};
+    context = iopaFactory.createRequestResponse("http://localhost/test/hello", "GET");
     context.response[IOPA.StatusCode] = null
     
     app(context).then(function (value) {
       context[IOPA.Method].should.equal("PUT");
       delete context.response;
-      iopaFactory.dispose(context);
-      (context[IOPA.Method] == undefined).should.be.true;
+      context.dispose();
+      (context[IOPA.Method] == null).should.be.true;
       value.should.equal("ABC");
      counter.should.equal(1);
       done();
@@ -66,15 +65,14 @@ describe('#IOPA()', function () {
   
   it('should call app second times with ignored item', function (done) {
 
-    context = iopaFactory.createRequest("http://localhost/test2/hello", "GET");
-    context.response = {};
+    context = iopaFactory.createRequestResponse("http://localhost/test2/hello", "GET");
     context.response[IOPA.StatusCode] = null
     
     app(context).then(function (value) {
       context[IOPA.Method].should.equal("GET");
       delete context.response;
-      iopaFactory.dispose(context);
-      (context[IOPA.Method] == undefined).should.be.true;
+       context.dispose();
+     (context[IOPA.Method] == null).should.be.true;
        (value == null).should.be.true;
      counter.should.equal(1);
       done();
@@ -83,16 +81,15 @@ describe('#IOPA()', function () {
   
   it('should call app third times with mounted item', function (done) {
 
-    context = iopaFactory.createRequest("http://localhost/test/hello2", "GET");
-    context.response = {};
+    context = iopaFactory.createRequestResponse("http://localhost/test/hello2", "GET");
     context.response[IOPA.StatusCode] = null
     
     app(context).then(function (value) {
       context[IOPA.Method].should.equal("PUT");
       delete context.response;
-      iopaFactory.dispose(context);
-      (context[IOPA.Method] == undefined).should.be.true;
-      value.should.equal("ABC");
+      context.dispose();
+     (context[IOPA.Method] == null).should.be.true;
+       value.should.equal("ABC");
      counter.should.equal(2);
       done();
     })

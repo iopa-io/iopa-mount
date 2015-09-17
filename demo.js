@@ -20,8 +20,6 @@
  */
 
 const iopa = require('iopa'),
-  iopaFactory = iopa.factory,
-  iopaUtil = iopa.util,
   iopaMount = require('./index'),
 
   constants = iopa.constants,
@@ -37,22 +35,20 @@ test.mount("/test", function (context, next) {
 });
 
 var demo = test.build();
-
-var context = iopaFactory.createRequest("http://localhost/test/hello", "GET");
+var factory = new iopa.Factory();
+var context = factory.createRequestResponse("http://localhost/test/hello", "GET");
 var dog = demo(context);
 
 dog.then(function(value){
   console.log("ENDED" + value);
 });
 
-context = iopaFactory.createRequest("http://localhost/ignore/hello", "GET");
-context.response = {};
+context = factory.createRequestResponse("http://localhost/ignore/hello", "GET");
  context.response[IOPA.StatusCode] = null
 demo(context);
 
-context = iopaFactory.createRequest("http://localhost/test/hello2", "GET");
-context.response = {};
+context = factory.createRequestResponse("http://localhost/test/hello2", "GET");
 context.response[IOPA.StatusCode] = null
 demo(context);
 
-iopaFactory.dispose(context);
+context.dispose();

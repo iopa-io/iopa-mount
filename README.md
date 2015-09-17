@@ -24,13 +24,10 @@ app.mount(path, function(context){});
 
 ```js
 const iopa = require('iopa'),
-  IopaApp = iopa.app,
-  iopaFactory = iopa.factory,
-  iopaUtil = iopa.util,
   iopaMount = require('./index'),
   IOPA = iopa.constants.IOPA
  
-var app = new IopaApp();
+var app = new iopa.App();
 
 app.mount("/test", function (context, next) {
   context.log.info("HELLO WORLD");
@@ -39,7 +36,7 @@ app.mount("/test", function (context, next) {
 
 var demo = app.build();
 
-var context = iopaFactory.createRequest("http://localhost/test/hello", "GET");
+var context = new iopa.Factory().createRequest("http://localhost/test/hello", "GET");
 demo(context);
 
 iopaFactory.dispose(context);
