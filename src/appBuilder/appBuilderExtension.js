@@ -18,12 +18,9 @@
  * Module dependencies.
  */
  
- const Mount = require('../middleware/iopaMount').default,
+ const mount = require('../middleware/iopaMount').default,
     iopa = require('iopa'),
-    IopaApp = iopa.App,
-    constants = iopa.constants,
-    IOPA = constants.IOPA,
-    SERVER = constants.SERVER
+    IopaApp = iopa.App
 
   /***
     * Method to mount a sub-application at a defined path
@@ -31,8 +28,8 @@
     * @return {function(context)} IOPA application 
     * @public
     */
- IopaApp.prototype.mount = function mount(location, appletFunc) {
-        var mounted = Mount(location, appletFunc);
-        this.middleware.push(mounted);
+ IopaApp.prototype.mount = function app_extension_mount(location, appletFunc) {
+        var mounted = mount(location, appletFunc);
+        this.middleware.invoke.push(mounted);
         return this;
     };
