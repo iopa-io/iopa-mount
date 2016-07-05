@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Internet of Protocols Alliance (IOPA)
+ * Copyright (c) 2016 Internet of Protocols Alliance (IOPA)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,8 +49,7 @@ describe('#IOPA()', function () {
 
   it('should call app first times with mounted item', function (done) {
 
-    context = iopaFactory.createRequestResponse("http://localhost/test/hello", "GET");
-    context.response[IOPA.StatusCode] = null
+    context = iopaFactory.createContext("http://localhost/test/hello", "GET");
     
     app(context).then(function (value) {
       context[IOPA.Method].should.equal("PUT");
@@ -65,8 +64,7 @@ describe('#IOPA()', function () {
   
   it('should call app second times with ignored item', function (done) {
 
-    context = iopaFactory.createRequestResponse("http://localhost/test2/hello", "GET");
-    context.response[IOPA.StatusCode] = null
+    context = iopaFactory.createContext("http://localhost/test2/hello", "GET");
     
     app(context).then(function (value) {
       context[IOPA.Method].should.equal("GET");
@@ -81,8 +79,7 @@ describe('#IOPA()', function () {
   
   it('should call app third times with mounted item', function (done) {
 
-    context = iopaFactory.createRequestResponse("http://localhost/test/hello2", "GET");
-    context.response[IOPA.StatusCode] = null
+    context = iopaFactory.createContext("http://localhost/test/hello2", "GET");
     
     app(context).then(function (value) {
       context[IOPA.Method].should.equal("PUT");

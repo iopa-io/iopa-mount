@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Internet of Protocols Alliance (IOPA)
+ * Copyright (c) 2016 Internet of Protocols Alliance (IOPA)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ function mount(location, appFunc) {
         var pathBase, pathInfo, host, mapping, match, remainingPath, i, len;
       
         // response is already handled
-        if (context.response[IOPA.StatusCode] !== null)
+        if (context.response && context.response[IOPA.StatusCode] !== null)
            {return Promise.resolve(null);}
 
         pathBase = context[IOPA.PathBase];

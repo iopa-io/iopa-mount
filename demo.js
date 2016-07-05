@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Internet of Protocols Alliance (IOPA)
+ * Copyright (c) 2016 Internet of Protocols Alliance (IOPA)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,19 +36,17 @@ test.mount("/test", function (context, next) {
 
 var demo = test.build();
 var factory = new iopa.Factory();
-var context = factory.createRequestResponse("http://localhost/test/hello", "GET");
+var context = factory.createContext("http://localhost/test/hello", "GET");
 var dog = demo(context);
 
 dog.then(function(value){
   console.log("ENDED" + value);
 });
 
-context = factory.createRequestResponse("http://localhost/ignore/hello", "GET");
- context.response[IOPA.StatusCode] = null
+context = factory.createContext("http://localhost/ignore/hello", "GET");
 demo(context);
 
-context = factory.createRequestResponse("http://localhost/test/hello2", "GET");
-context.response[IOPA.StatusCode] = null
+context = factory.createContext("http://localhost/test/hello2", "GET");
 demo(context);
 
 context.dispose();
